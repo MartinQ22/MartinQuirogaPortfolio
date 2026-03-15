@@ -1,31 +1,16 @@
 {
   "dependencies": {
-    "bcrypt": "^6.0.0",
-    "connect-mongo": "^6.0.0",
-    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
     "dotenv": "^17.3.1",
-    "express": "^5.1.0",
-    "express-handlebars": "^8.0.1",
-    "express-session": "^1.18.2",
-    "jsonwebtoken": "^9.0.3",
-    "moment": "^2.30.1",
-    "mongodb": "^7.0.0",
-    "mongoose": "^9.0.0",
-    "mongoose-paginate-v2": "^1.9.1",
-    "multer": "^2.0.2",
-    "nodemailer": "^8.0.0",
-    "passport": "^0.7.0",
-    "passport-github2": "^0.1.12",
-    "passport-jwt": "^4.0.1",
-    "passport-local": "^1.0.0",
-    "socket.io": "^4.8.3"
+    "express": "^5.2.1",
+    "nodemailer": "^8.0.2"
   },
-  "name": "Portfolio-Martin-Quirga",
+  "name": "portfolio-martin-quirga",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node --watch crud/app.js"
+    "start": "node --watch server/app.js"
   },
   "keywords": [],
   "author": "",
