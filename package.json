@@ -10,10 +10,16 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node --watch server/app.js"
+    "start": "node server/app.js",
+    "server": "node --watch server/app.js",
+    "client": "npm run dev --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
 }
