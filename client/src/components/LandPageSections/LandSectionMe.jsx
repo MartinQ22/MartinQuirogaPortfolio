@@ -1,30 +1,24 @@
-import landingPhoto from '../../assets/landing_photo.png';
-import StarIcon from '../Icons/StarIcon';
+import mijetaPhoto from '../../assets/MiJeta.png';
 
 export default function LandSectionMe() {
   return (
     <div className="welcomeSection">
-      <div className="welcomeContent">
-        <h1 className="welcomeText">
-          <div className="welcomeTextContainer">
-            <span className="text-black">BIENVENIDO</span>
-            <span className="text-black">SOY</span>
-            <span className="text-orange">MARTÍN</span>
-            <span className="text-orange">QUIROGA</span>
-          </div>
-        </h1>
-      </div>
+      {/* Background large blue text */}
+      <h1 className="welcomeTextTop">BIENVENIDO</h1>
       
-      <div className="welcomeImageContainer">
-        <img src={landingPhoto} alt="Martín Quiroga" className="welcomeImage" />
+      {/* Middle layer thin text */}
+      <div className="welcomeTextBottom">
+        <span className="text-thin">SOY MARTÍN</span>
+        <span className="text-thin">QUIROGA</span>
       </div>
 
-      <div className="welcomeBarAndIcon">
-        <div className="welcomeBar"></div>
-        <div className="starIcon">
-          <StarIcon />
-        </div>
+      {/* Foreground portrait image */}
+      <div className="welcomeImageContainer">
+        <img src={mijetaPhoto} alt="Martín Quiroga" className="welcomeImage" />
       </div>
+
+      {/* Thick bottom border replacing the bar/star */}
+      <div className="welcomeBottomBorder"></div>
     </div>
   );
 }

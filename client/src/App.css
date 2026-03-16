@@ -15,12 +15,18 @@
 
 /* NAVBAR */
 .navBar {
-  background-color: var(--violeta-clarito);
+  background-color: rgba(13, 12, 13, 0.6); /* Translucent var(--negro-suave) */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   padding: 26px;
   display: flex;
   justify-content: center;
   gap: 20px;
   font: 1em sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .navBarLinks {
@@ -252,93 +258,84 @@
 
 /* WELCOME SECTION - FULL MATCH */
 .welcomeSection {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr auto;
-  min-height: calc(120vh - 80px); /* Adjust for nav heights */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px); /* Adjust for nav heights */
   position: relative;
   background-color: var(--blanco-base);
   overflow: hidden;
   padding: 0 5%;
 }
 
-.welcomeContent {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 2;
-  position: relative;
-}
-
-.welcomeText {
+.welcomeTextTop {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
-  font-size: 5rem;
-  line-height: 0.85;
-  text-align: left;
+  font-size: 15vw; /* Extremely large, scales with width */
+  color: #1d4ed8; /* Vibrant Blue */
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
   margin: 0;
+  white-space: nowrap;
   letter-spacing: -2px;
+  z-index: 1; /* Behind image */
 }
 
-.welcomeTextContainer {
+.welcomeTextBottom {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding-right: 40px; /* Adjusting padding-right as requested */
+  justify-content: space-between;
+  width: 90%;
+  position: absolute;
+  top: 45%;
+  z-index: 2; /* Still generally behind image but above blue text */
 }
 
-.text-black {
+.text-thin {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 4rem;
   color: #1a1a1a;
-}
-
-.text-orange {
-  color: var(--naranja-acento);
+  letter-spacing: 2px;
 }
 
 .welcomeImageContainer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  height: 100%;
-  width: auto;
+  position: relative;
+  height: 80vh;
+  margin-top: 10vh; /* Pushes image down to overlap text properly */
+  z-index: 3; /* In front of texts */
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: flex-end;
-  z-index: 1; /* Send to back */
-  pointer-events: none;
 }
 
 .welcomeImage {
   height: 100%;
   width: auto;
   object-fit: contain;
-  object-position: top;
-  filter: grayscale(100%) contrast(115%);
+  object-position: bottom;
+  filter: grayscale(100%) contrast(110%);
 }
 
-.welcomeBarAndIcon {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding-bottom: 80px;
-  z-index: 3;
-  position: relative;
-  width: 100%;
+.welcomeBottomBorder {
+  position: absolute;
+  bottom: 50px;
+  width: 90%;
+  height: 15px; /* Thick border */
+  background-color: #1a1a1a;
+  z-index: 4; /* On top of image base */
 }
 
-.welcomeBar {
-  flex-grow: 1;
-  height: 10px;
-  background: linear-gradient(to right, var(--negro-suave), var(--blanco-base));
-}
-
-.starIcon svg {
-  width: 70px;
-  height: auto;
-}
-
-.starIcon path {
-  fill: var(--blanco-base);
+@media (max-width: 1024px) {
+  .welcomeTextTop {
+    font-size: 20vw;
+    top: 20%;
+  }
+  .text-thin {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -751,4 +748,296 @@
   .contactRight { align-items: center; }
   .dualStarsWrapper { display: none; }
   .contactCenter .girlImage { height: 60vh; }
+}
+
+/* --- ABOUT INTRO SECTION --- */
+.aboutIntroSection {
+  background-color: var(--negro-profundo);
+  background: radial-gradient(circle at 80% -10%, rgba(151, 125, 255, 0.4) 0%, rgba(151, 125, 255, 0.15) 25%, rgba(14, 14, 8, 1) 50%);
+  color: var(--blanco-base);
+  min-height: 100vh;
+  padding: 80px 10%;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+}
+
+.aboutIntroSideIcons {
+  position: absolute;
+  top: 80px;
+  right: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: var(--blanco-base);
+  z-index: 10;
+}
+
+.aboutIntroSideIcons .sideIcon svg {
+  width: 35px;
+  height: 35px;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.aboutIntroSideIcons .sideIcon:hover svg {
+  opacity: 1;
+}
+
+.aboutIntroContent {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  z-index: 2;
+}
+
+.aboutIntroHeader {
+  max-width: 600px;
+}
+
+.aboutIntroTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.aboutIntroIntroText {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #dddddd;
+}
+
+.italic-white {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--blanco-base);
+}
+
+.aboutIntroColumns {
+  display: flex;
+  gap: 60px;
+}
+
+.aboutIntroCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.aboutIntroColTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.aboutIntroSubSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.aboutIntroSubTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.aboutIntroList {
+  padding-left: 20px;
+}
+
+.aboutIntroList li {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #dddddd;
+  margin-bottom: 15px;
+}
+
+.aboutIntroColText {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #dddddd;
+}
+
+.aboutIntroToolsSection {
+  margin-top: 10px;
+}
+
+.aboutIntroToolsTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.aboutIntroToolsText {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #dddddd;
+  margin-bottom: 20px;
+}
+
+.aboutIntroToolsIcons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.toolIcon {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+/* Specific styling for the icons block from the layout */
+@media (max-width: 1024px) {
+  .aboutIntroSection {
+    padding: 60px 5%;
+    background: radial-gradient(circle at 50% 10%, rgba(151, 125, 255, 0.4) 0%, rgba(151, 125, 255, 0.15) 30%, rgba(14, 14, 8, 1) 60%);
+  }
+
+  .aboutIntroSideIcons {
+    display: none;
+  }
+
+  .aboutIntroColumns {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+.aboutIntroCertificate {
+  margin-top: 20px;
+  border: 1px solid var(--blanco-base);
+  padding: 20px;
+  max-width: 900px;
+  align-self: center;
+}
+
+.aboutIntroCertificateText {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--blanco-base);
+  text-align: left;
+}
+
+/* --- PORTFOLIO HERO SECTION --- */
+.portHeroSection {
+  width: 100%;
+  min-height: 120vh;
+  /* Top 65% dark background, bottom 35% white background */
+  background: linear-gradient(to bottom, var(--background) 0%, var(--background) 65%, #ffffff 65%, #ffffff 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.portHeroTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 80%;
+  max-width: 1200px;
+  margin-bottom: 2rem;
+  z-index: 10;
+}
+
+.portHeroTextContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+}
+
+.portHeroTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 5rem;
+  color: var(--blanco-base);
+  margin: 0;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.portHeroSubtitle {
+  font-size: 1.2rem;
+  color: var(--blanco-base);
+  opacity: 0.9;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.portHeroSearchContainer {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-top: 10px;
+}
+
+.portHeroSearchImg {
+  max-width: 350px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.portHeroCenter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 20;
+  margin-top: -20px; /* Slight overlap with text, adjust as needed */
+}
+
+.portHeroFlyerImg {
+  max-width: 700px;
+  width: 80%;
+  padding-top: 50px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 30px 40px rgba(0,0,0,0.3));
+}
+
+/* A smooth, slow float animation for the flyer */
+.floatDownAnimation {
+  animation: floatUpDown 6s ease-in-out infinite;
+}
+
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-30px); }
+}
+
+@media (max-width: 1024px) {
+  .portHeroTop {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+  
+  .portHeroSearchContainer {
+    justify-content: center;
+  }
+  
+  .portHeroTitle {
+    font-size: 3.5rem;
+  }
+  
+  .portHeroSection {
+    background: linear-gradient(to bottom, var(--background) 0%, var(--background) 50%, #ffffff 50%, #ffffff 100%);
+  }
 }

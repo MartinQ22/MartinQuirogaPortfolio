@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar';
+import PortHeroSection from './components/PortfolioSections/PortHeroSection';
+import AboutmeIntroSection from './components/AboutMeSections/AboutIntroSection';
 
 const ScrollToHash = () => {
   const { hash } = useLocation();
@@ -33,19 +35,14 @@ const Home = () => (
 
 const About = () => (
   <main>
-    <div>
-      <h1>Sobre Mí</h1>
-      <p>Aquí puedes contar tu historia y experiencia.</p>
-    </div>
+   <AboutmeIntroSection/> 
   </main>
 );
 
-const Projects = () => (
+
+const Portfolio = () => (
   <main>
-    <div>
-      <h1>Mis Proyectos</h1>
-      <p>Muestra tus mejores trabajos aquí.</p>
-    </div>
+    <PortHeroSection />
   </main>
 );
 
@@ -58,7 +55,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<Projects />} />
+        <Route path="/portfolio" element={<Portfolio />} />
       </Routes>
       
       <footer>
