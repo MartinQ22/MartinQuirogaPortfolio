@@ -255,7 +255,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr auto;
-  min-height: calc(100vh - 80px); /* Adjust for nav heights */
+  min-height: calc(120vh - 80px); /* Adjust for nav heights */
   position: relative;
   background-color: var(--blanco-base);
   overflow: hidden;
@@ -273,7 +273,7 @@
 .welcomeText {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
-  font-size: 6rem;
+  font-size: 5rem;
   line-height: 0.85;
   text-align: left;
   margin: 0;
@@ -446,12 +446,13 @@
 
 /* --- PORTFOLIO SECTION --- */
 .portfolioSection {
-  min-height: 100vh;
+  min-height: 110vh;
   background-color: var(--blanco-base);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 10%;
+  padding: 10% 10% 10% 10%;
+
   position: relative;
   overflow: hidden;
 }
@@ -563,4 +564,191 @@
   .aboutMeWatermark span {
     font-size: 4rem;
   }
+}
+
+/* --- SOCIAL CONTACT BAR --- */
+.contactBarContainer .card {
+  width: fit-content;
+  height: fit-content;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  gap: 20px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
+}
+
+.contactBarContainer .socialContainer {
+  width: 52px;
+  height: 52px;
+  background-color: var(--azul-acento);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.contactBarContainer .containerOne:hover { background-color: #d62976; }
+.contactBarContainer .containerTwo:hover { background-color: #444; }
+.contactBarContainer .containerThree:hover { background-color: #0072b1; }
+.contactBarContainer .containerFour:hover { background-color: #128C7E; }
+
+.contactBarContainer .socialContainer:active {
+  transform: scale(0.9);
+}
+
+.contactBarContainer .socialSvg {
+  width: 17px;
+  fill: #fff;
+}
+
+.contactBarContainer .socialContainer:hover .socialSvg {
+  animation: socialSlideIn 0.3s both;
+}
+
+@keyframes socialSlideIn {
+  0% { transform: translateY(-50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* --- CONTACT SECTION (IRIDISCENT REFINEMENT) --- */
+.contactSection {
+  min-height: 80vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  position: relative;
+  overflow: hidden;
+  color: var(--blanco-base);
+}
+
+.contactLeft {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 5;
+}
+
+.contactTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 3.5rem;
+  line-height: 0.9;
+  margin-bottom: 30vh; /* Adjust to move title up */
+  letter-spacing: 2px;
+  color: var(--blanco-base);
+}
+
+.dualStarsWrapper {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  opacity: 0.8;
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+  50% { transform: scale(1.1) rotate(5deg); opacity: 1; }
+}
+
+.contactCenter {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  position: relative;
+}
+
+.contactCenter .girlImage {
+  height: 100vh;
+  object-fit: contain;
+  z-index: 4;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contactSection.revealed .girlImage {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contactRight {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 40px;
+  z-index: 5;
+}
+
+.contactDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.contactMailHeader {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--negro-profundo);
+}
+
+.contactMailHeader svg {
+  width: 30px;
+  height: auto;
+}
+
+.contactMailHeader svg path {
+  stroke: var(--negro-profundo);
+}
+
+.contactMailValue {
+  font-size: 1.2rem;
+  color: var(--negro-profundo);
+  text-decoration: none;
+  opacity: 0.9;
+  padding-left: 45px;
+}
+
+.contactBarWrapper .card {
+  background-color: var(--violeta-clarito) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contactBarWrapper .socialContainer {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+@media (max-width: 1200px) {
+  .contactTitle { font-size: 4rem; }
+}
+
+@media (max-width: 1024px) {
+  .contactSection {
+    flex-direction: column;
+    padding: 100px 5%;
+    text-align: center;
+    min-height: auto;
+  }
+  .contactTitle { margin-bottom: 50px; }
+  .contactRight { align-items: center; }
+  .dualStarsWrapper { display: none; }
+  .contactCenter .girlImage { height: 60vh; }
 }

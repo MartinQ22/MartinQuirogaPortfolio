@@ -4,9 +4,10 @@ import DesignIcon from "../Icons/DesignIcon";
 import CodeIcon from "../Icons/CodeIcon";
 import HelloIcon from "../Icons/HelloIcon";
 
+
 export default function LandSectionAboutMe() {
   return (
-    <div className="aboutMeSection">
+    <div className="aboutMeSection" >
       {/* LEFT SIDE - IMAGE */}
       <div className="aboutMeLeft">
         <img src={aboutMeImage} alt="About Me Graphic" className="aboutMeGraphic" />
