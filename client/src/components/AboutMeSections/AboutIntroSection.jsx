@@ -5,7 +5,7 @@ import HelloIcon from "../Icons/HelloIcon";
 // PNG Icons
 import BootstrapIcon from "../../assets/PngIcons/BootstrapIcon.png";
 import FigmaIcon from "../../assets/PngIcons/FigmaIcon.png";
-import JavaScriptIcon from "../../assets/PngIcons/JavaScripIcon.png"; // Note the typo in filenames from source
+import JavaScriptIcon from "../../assets/PngIcons/JavaScripIcon.png"; 
 import MongoDBIcon from "../../assets/PngIcons/MongooseIcon.png";
 import PostmanIcon from "../../assets/PngIcons/PostmanIcon.png";
 import ReactIcon from "../../assets/PngIcons/ReactIcon.png";
